@@ -1,20 +1,20 @@
 {
-  "name": "rrrouter",
+  "name": "@neuronet.io/rrrouter",
   "version": "1.0.0",
-  "repository": "neuronetio/rrrouter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neuronetio/rrrouter.git"
+  },
   "description": "Just router :)",
   "module": "index.mjs",
   "main": "index.js",
   "license": "MIT",
+  "private": false,
   "files": [
     "index.js",
     "index.mjs"
   ],
-  "author": {
-    "name": "Rafal Pospiech",
-    "email": "neuronet.io@gmail.com",
-    "url": "https://neuronet.io"
-  },
+  "author": "Rafal Pospiech <neuronet.io@gmail.com> (https://neuronet.io)",
   "engines": {
     "node": ">=6"
   },
@@ -36,5 +36,12 @@
     "esm": "3.2.22",
     "tap-spec": "5.0.0",
     "tape": "4.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/neuronetio/rrrouter/issues"
+  },
+  "homepage": "https://github.com/neuronetio/rrrouter#readme",
+  "directories": {
+    "test": "test"
   }
 }
