@@ -5,7 +5,7 @@
 ## Install
 
 ```
-$ npm install --save rrrouter
+$ npm install --save @neuronet.io/rrrouter
 ```
 
 ## Usage
@@ -212,4 +212,4 @@ HEAD /hello (all)               x  9,700,097 ops/sec ±0.47% (90 runs sampled)
 
 ## License
 
-MIT © [Luke Edwards](https://lukeed.com)
+MIT © [Luke Edwards](https://lukeed.com) && [Rafal Pospiech](https://neuronet.io)
