@@ -1,8 +1,8 @@
 {
-  "name": "trouter",
-  "version": "3.1.0",
-  "repository": "lukeed/trouter",
-  "description": "🐟 A fast, small-but-mighty, familiar ~fish~ router",
+  "name": "rrrouter",
+  "version": "1.0.0",
+  "repository": "neuronetio/rrrouter",
+  "description": "Just router :)",
   "module": "index.mjs",
   "main": "index.js",
   "license": "MIT",
@@ -11,9 +11,9 @@
     "index.mjs"
   ],
   "author": {
-    "name": "Luke Edwards",
-    "email": "luke.edwards05@gmail.com",
-    "url": "lukeed.com"
+    "name": "Rafal Pospiech",
+    "email": "neuronet.io@gmail.com",
+    "url": "https://neuronet.io"
   },
   "engines": {
     "node": ">=6"
