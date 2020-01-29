@@ -14,7 +14,11 @@
     "index.js",
     "index.mjs"
   ],
-  "author": "Rafal Pospiech <neuronet.io@gmail.com> (https://neuronet.io)",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke@lukeed.com",
+    "url": "https://lukeed.com"
+  },
   "engines": {
     "node": ">=6"
   },
