@@ -16,10 +16,10 @@ export default class Rrrouter {
 		this.put = this.add.bind(this, "PUT");
 	}
 
-	use(route, ...fns) {
-		let handlers = [].concat.apply([], fns);
-		let { keys, pattern } = parse(route, true);
-		this.routes.push({ keys, pattern, method: "", handlers });
+	use(path, ...fns) {
+		let handlers = fns.flat();
+		let { keys, pattern } = parse(path, true);
+		this.routes.push({ keys, pattern, path, method: "", handlers });
 		return this;
 	}
 
