@@ -225,7 +225,8 @@ test("remove() – multiple", t => {
 	const ctx = new Rrrouter();
 
 	ctx.add("SEARCH", "/foo/:hello", [noop, noop]);
-	t.is(ctx.routes.length, 1, 'added "SEARCH /foo/:hello" route successfully');
+	ctx.add("SEARCH", "/foo/:hello2", noop);
+	t.is(ctx.routes.length, 2, 'added "SEARCH /foo/:hello" route successfully');
 
 	t.isRoute(ctx.routes[0], {
 		keys: ["hello"],
@@ -233,17 +234,30 @@ test("remove() – multiple", t => {
 		route: "/foo/howdy",
 		count: 2
 	});
+	t.isRoute(ctx.routes[1], {
+		keys: ["hello2"],
+		method: "SEARCH",
+		route: "/foo/howdy",
+		count: 1
+	});
+
+	ctx.remove("SEARCH", "/foo/:hello", noop);
+	t.is(ctx.routes.length, 2, 'removed "SEARCH /foo/:hello" route successfully');
 
 	ctx.remove("SEARCH", "/foo/:hello", noop);
 	t.is(ctx.routes.length, 1, 'removed "SEARCH /foo/:hello" route successfully');
-	ctx.remove("SEARCH", "/foo/:hello", noop);
-	t.is(ctx.routes.length, 0, 'removed "SEARCH /foo/:hello" route successfully');
+	t.isRoute(ctx.routes[0], {
+		keys: ["hello2"],
+		method: "SEARCH",
+		route: "/foo/howdy",
+		count: 1
+	});
 
 	console.log(" ");
 	ctx.put("/bar", noop, noop, noop);
-	t.is(ctx.routes.length, 1, 'added "PUT /bar" route successfully (via alias)');
+	t.is(ctx.routes.length, 2, 'added "PUT /bar" route successfully (via alias)');
 
-	t.isRoute(ctx.routes[0], {
+	t.isRoute(ctx.routes[1], {
 		keys: [],
 		method: "PUT",
 		route: "/bar",

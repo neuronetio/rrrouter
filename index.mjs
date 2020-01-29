@@ -50,25 +50,21 @@ export default class Rrrouter {
 	}
 
 	remove(method, path, handler) {
-		let i = 0,
-			currentRoute,
-			idx,
-			routes = this.routes;
 		path = path.toString();
-		for (const len = routes.length; i < len; i++) {
-			currentRoute = routes[i];
+		for (let i = 0, len = this.routes.length; i < len; i++) {
+			const currentRoute = this.routes[i];
 			if (currentRoute.method !== method || currentRoute.path !== path)
 				continue;
-			idx = currentRoute.handlers.indexOf(handler);
+			const idx = currentRoute.handlers.indexOf(handler);
 			if (idx === -1) continue;
-			// remove everything if this was the only handler
-			// otherwise just remove the single handler
 			if (currentRoute.handlers.length === 1) {
 				this.routes.splice(i, 1);
+				len--;
 			} else {
-				routes[i].handlers.splice(idx, 1);
+				currentRoute.handlers.splice(idx, 1);
 			}
 		}
+
 		return this;
 	}
 
