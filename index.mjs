@@ -18,7 +18,16 @@ export default class Rrrouter {
 
 	use(path, ...fns) {
 		let handlers = fns.flat();
-		let { keys, pattern } = parse(path, true);
+		let keys, pattern;
+		if (typeof path === "string") {
+			const parsed = parse(path, true);
+			keys = parsed.keys;
+			pattern = parsed.pattern;
+		} else {
+			handlers = [path].concat(handlers);
+			keys = "";
+			pattern = /.*/;
+		}
 		this.routes.push({ keys, pattern, path, method: "", handlers });
 		return this;
 	}
