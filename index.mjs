@@ -23,6 +23,11 @@ export default class Rrrouter {
 			const parsed = parse(path, true);
 			keys = parsed.keys;
 			pattern = parsed.pattern;
+		} else if (Array.isArray(path)) {
+			handlers = path;
+			path = "/**";
+			pattern = /.*/;
+			keys = "";
 		} else {
 			handlers = [path].concat(handlers);
 			keys = "";
